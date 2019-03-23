@@ -34,7 +34,6 @@ function reloadWords() {
     for (var i = 0; i < WORDLIST.length; i++) {
         var isBalad = baladList.includes(WORDLIST[i].id);
         var isNaBalad = nabaladList.includes(WORDLIST[i].id);
-        alert("1");
         var li = $("<li></li>");
         li.addClass("item-content");
         var div = $("<div></div>");
@@ -44,7 +43,6 @@ function reloadWords() {
         div1.addClass("item-title");
         var key = WORDLIST[i].eng;
         var value = WORDLIST[i].per;
-        alert("2");
         if (!$("#btnSwitch")[0].checked) {
             div1.html(key);
             div1.data("trans", value);
@@ -67,7 +65,6 @@ function reloadWords() {
         balad.addClass("baladButton");
         balad.html("بلدم");
         balad.data("id", WORDLIST[i].id);
-        alert("3");
         balad.click(function() {
             addWordToLIST($(this).data().id, "BALAD");
             $(this).parent().parent().parent().remove();
@@ -79,7 +76,6 @@ function reloadWords() {
         nabalad.addClass("baladButton");
         nabalad.html("بلد نیستم");
         nabalad.data("id", WORDLIST[i].id);
-        alert("4");
         nabalad.click(function() {
             addWordToLIST($(this).data().id, "NABALAD");
             $(this).parent().parent().parent().remove();
@@ -128,7 +124,6 @@ function reloadWords() {
         else {
             $("#wordList").append(li);
         }
-        alert("4");
     }
 }
 
