@@ -1,49 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head lang="en">
-    <meta charset="UTF-8"/>
-    <meta name="description" content="سیستم مدیریت دانش و آرشیو آنداکس، راهکاری نوین در مستندسازی دانش سازمانی"/>
-    <meta name="keywords" content="آرشیو, مدیریت دانش, سیستم, سامانه, نرم افزار"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <title>سیستم مدیریت دانش و آرشیو آنداکس</title>
-    <link rel="stylesheet" href="style/bootstrap.min.css"/>
-    <link rel="stylesheet" href="style/bootstrap-theme.min.css"/>
-    <link rel="stylesheet" href="style/style.css"/>
-</head>
-<body>
-
-<nav class="navbar navbar-static-top ">
-    <div class="container-fluid">
-        <div class="navbar-header navbar-right">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="index.html"><img src="img/logo.png" style="width: 60px;float: right;"></a>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <title>WordBox</title>
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+        <link rel="stylesheet" href="styles/framework7.ios.min.css">
+        <link rel="stylesheet" href="styles/framework7.ios.colors.min.css">
+        <link rel="stylesheet" href="styles/framework7.ios.rtl.min.css">
+        <link rel="stylesheet" href="styles/font-awesome.min.css">
+        <link rel="stylesheet" href="styles/style.css">
+    </head>
+    <body>
+        <div class="page-content">
+            <div class="content-block">
+                <p><a href="#" data-popup=".notAnalyzed" class="open-popup button">لغات بررسی نشده </a></p>
+                <p><a href="#" data-popup=".unknown" class="open-popup button">آزمون لغاتی که بلد نیستم </a></p>
+                <p><a href="#" data-popup=".known" class="open-popup button">مرور لغاتی که بلدم </a></p>
+                <p><a href="#" class="button" onclick="localStorage.clear();">حذف سابقه </a></p>
+                <div class="item-content">
+                    <div class="item-inner">
+                        <div class="item-title label">فارسی به انگلیسی</div>
+                        <div class="item-input">
+                            <label class="label-switch">
+                                <input id="btnSwitch" type="checkbox">
+                                <div class="checkbox"></div>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="مدیریت%20دانش%20سفارش.html">تماس با ما</a></li>
-                <li><a href="مدیریت%20دانش%20چند%20رسانه%20ای.html">چندرسانه ای</a></li>
-                <li><a href="مدیریت%20دانش%20پیش%20نمایش.html">دموی آنلاین</a></li>
-                <li><a href="مدیریت%20دانش%20کاتالوگ.html">کاتالوگ</a></li>
-                <li><a href="طرح%20مدیریت%20دانش.html">طرح های فروش</a></li>
-                <li class="nav-active"><a id="btnHome" href="index.html">خانه</a></li>
-            </ul>
+        ...
+        <div class="popup notAnalyzed">
+            <div class="content-block">
+                <a href="#" class="close-popup button">بستن</a>
+                <div class="list-block">
+                    <ul id="wordList" style="direction: ltr;">
+                    </ul>
+                </div>
+            </div>
         </div>
-    </div>
-</nav>
-<div class="container">
+        <div class="popup known">
+            <div class="content-block">
+                <a href="#" class="close-popup button">بستن</a>
+                <div class="list-block">
+                    <ul id="baladWordList" style="direction: ltr;">
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="popup unknown">
+            <div class="content-block">
+                <a href="#" class="close-popup button">بستن</a>
+                <div class="list-block">
+                    <ul id="nabaladWordList" style="direction: ltr;">
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-    <div class="starter-template" style="text-align: right;direction: rtl;">
-        <h3>معرفی سیستم مدیریت دانش و آرشیو آنداکس</h3>
-        <p class="lead">یکی از سرمایه های بزرگ هر سازمان، دانش و تجربیاتی است که اعضای آن سازمان در بلندمدت کسب کرده اند. بسیاری از مدیران به دلیل عدم آگاهی نسبت به اهمیت این موضوع، از آن غافلند و در عمل سرمایه های زیادی از سازمان از دست می رود بدون آن که کسی متوجه این ضرر بزرگ شود. سیستم های مدیریت دانش این هدف را دنبال می کنند تا این سرمایه های بزرگ برای همیشه متعلق به سازمان شوند و با تغییر یا جابجایی نیروی انسانی از بین نروند. سیستم مدیریت دانش و آرشیو آنداکس با نگرشی نوین در مستندسازی دانش سازمانی سعی می کند آرشیو،سازماندهی، پالایش و غنی سازی دانش سازمانی را تا حد ممکن میسر سازد.</p>
-        <p class="lead">سیستم مدیریت دانش و آرشیو آنداکس برای تبدیل داده ها به اطلاعات و استخراج دانش از اطلاعات، از یک موتور آنتالوژی بهره می گیرد که در آن فیلدهای داده ای توسط مدیران سازمان تعریف می شود و اسناد طبقه بندی شده سازمان در قالب این فیلدهای داده ای سازمان دهی می شوند. علاوه بر این برای مستند سازی دانش پنهان سازمان که به صورت محاوره ای در بین کارکنان سازمان در جریان است، یک فضای همفکری ارائه می کند. از دیگر امکانات سیستم مدیریت دانش و آرشیو آنداکس می توان به امکان تعریف گردش کار برای اسناد، ایجاد محدودیت های امنیتی بر روی فیلدها، گزارش گیری و ... اشاره کرد.</p>
-    </div>
-</div>
-
-<script src="js/jquery.min.js.download"></script>
-<script src="js/bootstrap.min.js.download"></script>
-</body>
+        <script type="text/javascript" src="scripts/libs/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="scripts/libs/framework7.min.js"></script>
+        <script type="text/javascript" src="scripts/data.js"></script>
+        <script type="text/javascript" src="scripts/my-app.js"></script>
+    </body>
 </html>

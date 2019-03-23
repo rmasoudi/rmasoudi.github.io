@@ -1,0 +1,43 @@
+/*  Ronakweb.com  */
+
+@font-face {
+    font-family: 'yekan';
+    src: url(fonts/Yekan.eot);
+    src: url(fonts/Yekan.eot?#iefix) format("embedded-opentype"), url(fonts/Yekan.woff) format("woff"), url(fonts/Yekan.ttf) format("truetype"), url(fonts/Yekan.svg#BYekan) format("svg");
+    font-weight: normal;
+    font-style: normal
+}
+
+* {
+    font-family: yekan;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none;
+    /* Non-prefixed version, currently
+                             supported by Chrome and Opera */
+    cursor: pointer;
+}
+
+
+div[class*="col-"] {
+    text-align: center;
+    color: #104c5a;
+    padding: 5px;
+}
+.row {
+    margin-bottom: 15px;
+}         
+.content-block-title{
+    padding-bottom:5px;
+}
+
+.baladButton{
+    width: 90px;
+    margin-right: 5px;
+}
