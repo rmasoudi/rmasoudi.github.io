@@ -1,70 +1,77 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-        <meta name="apple-mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-status-bar-style" content="black">
-        <title>WordBox</title>
-        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
-        <link rel="stylesheet" href="styles/framework7.ios.min.css">
-        <link rel="stylesheet" href="styles/framework7.ios.colors.min.css">
-        <link rel="stylesheet" href="styles/framework7.ios.rtl.min.css">
-        <link rel="stylesheet" href="styles/font-awesome.min.css">
-        <link rel="stylesheet" href="styles/style.css">
-    </head>
-    <body>
-        <div class="page-content">
-            <div class="content-block">
-                <p><a href="#" data-popup=".notAnalyzed" class="open-popup button">لغات بررسی نشده </a></p>
-                <p><a href="#" data-popup=".unknown" class="open-popup button">آزمون لغاتی که بلد نیستم </a></p>
-                <p><a href="#" data-popup=".known" class="open-popup button">مرور لغاتی که بلدم </a></p>
-                <p><a href="#" class="button" onclick="localStorage.clear();">حذف سابقه </a></p>
-                <div class="item-content">
-                    <div class="item-inner">
-                        <div class="item-title label">فارسی به انگلیسی</div>
-                        <div class="item-input">
-                            <label class="label-switch">
-                                <input id="btnSwitch" type="checkbox">
-                                <div class="checkbox"></div>
-                            </label>
-                        </div>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>WordBox</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="stylesheet" href="styles/framework7.ios.min.css">
+    <link rel="stylesheet" href="styles/framework7.ios.colors.min.css">
+    <link rel="stylesheet" href="styles/framework7.ios.rtl.min.css">
+    <link rel="stylesheet" href="styles/font-awesome.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+    <div class="page-content" data-distance="100">
+        <div class="content-block">
+            <p><a href="#" data-popup=".notAnalyzed" class="open-popup button">لغات بررسی نشده </a></p>
+            <p><a href="#" data-popup=".unknown" class="open-popup button">آزمون لغاتی که بلد نیستم </a></p>
+            <p><a href="#" data-popup=".known" class="open-popup button">مرور لغاتی که بلدم </a></p>
+            <p><a href="#" class="button" onclick="localStorage.clear();">حذف سابقه </a></p>
+            <div class="item-content">
+                <div class="item-inner">
+                    <div class="item-title label">فارسی به انگلیسی</div>
+                    <div class="item-input">
+                        <label class="label-switch">
+                            <input id="btnSwitch" type="checkbox">
+                            <div class="checkbox"></div>
+                        </label>
                     </div>
                 </div>
             </div>
         </div>
-        ...
-        <div class="popup notAnalyzed">
-            <div class="content-block">
-                <a href="#" class="close-popup button">بستن</a>
-                <div class="list-block">
-                    <ul id="wordList" style="direction: ltr;">
-                    </ul>
-                </div>
+    </div>
+    <div class="popup notAnalyzed">
+        <div class="content-block">
+            <a href="#" class="close-popup button">بستن</a>
+            <div class="list-block">
+                <ul id="wordList" style="direction: ltr;">
+                </ul>
+                <div id="btnWordMore" class="button">بیشتر</div>
             </div>
         </div>
-        <div class="popup known">
-            <div class="content-block">
-                <a href="#" class="close-popup button">بستن</a>
-                <div class="list-block">
-                    <ul id="baladWordList" style="direction: ltr;">
-                    </ul>
-                </div>
+    </div>
+    <div class="popup known">
+        <div class="content-block">
+            <a href="#" class="close-popup button">بستن</a>
+            <div class="list-block">
+                <ul id="baladWordList" style="direction: ltr;">
+                </ul>
+                <div id="btnBaladMore" class="button">بیشتر</div>
             </div>
         </div>
-        <div class="popup unknown">
-            <div class="content-block">
-                <a href="#" class="close-popup button">بستن</a>
-                <div class="list-block">
-                    <ul id="nabaladWordList" style="direction: ltr;">
-                    </ul>
-                </div>
+    </div>
+    <div class="popup unknown">
+        <div class="content-block">
+            <a href="#" class="close-popup button">بستن</a>
+            <div class="list-block">
+                <ul id="nabaladWordList" style="direction: ltr;">
+                </ul>
+                <div id="btnNaBaladMore" class="button">بیشتر</div>
             </div>
         </div>
+    </div>
 
-        <script type="text/javascript" src="scripts/libs/jquery-1.11.1.min.js"></script>
-        <script type="text/javascript" src="scripts/libs/framework7.min.js"></script>
-        <script type="text/javascript" src="scripts/data.js"></script>
-        <script type="text/javascript" src="scripts/my-app.js"></script>
-    </body>
+    <script type="text/javascript" src="scripts/libs/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="scripts/libs/framework7.min.js"></script>
+    <script type="text/javascript" src="scripts/libs/lokijs.min.js"></script>
+    <script type="text/javascript" src="scripts/data.js"></script>
+    <script type="text/javascript" src="scripts/my-app.js"></script>
+</body>
+
 </html>
