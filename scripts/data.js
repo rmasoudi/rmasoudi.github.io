@@ -170,7 +170,7 @@ function getListItem(obj, isBalad, isNaBalad) {
         yad.addClass("button");
         yad.addClass("color-green");
         yad.addClass("baladButton");
-        yad.html("یاد گرفتم");
+        yad.html("میدونم");
         yad.data("id", obj.id);
         yad.click(function () {
             markBalad($(this).data().id);
@@ -182,7 +182,7 @@ function getListItem(obj, isBalad, isNaBalad) {
         yad.addClass("button");
         yad.addClass("color-red");
         yad.addClass("baladButton");
-        yad.html("یادم رفته");
+        yad.html("نمیدونم");
         yad.data("id", obj.id);
         yad.click(function () {
             markNaBalad($(this).data().id);
