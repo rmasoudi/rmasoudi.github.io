@@ -1,5 +1,6 @@
 var myApp = new Framework7({
     tapHold: false,
+    pushState: true,
     popup: {
         closeByBackdropClick: false
     },
