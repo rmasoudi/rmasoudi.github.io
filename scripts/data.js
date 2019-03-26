@@ -59,7 +59,13 @@ function loadNaBaladItems() {
 }
 
 function getNotAnalyzedList(offset, size) {
-    return words.chain().find({ enbalad: undefined, ennabalad: undefined, fabalad: undefined, fanabalad: undefined }).offset(offset).limit(size).data();
+    if (!$("#btnSwitch")[0].checked) {
+        return words.chain().find({ enbalad: undefined, ennabalad: undefined }).offset(offset).limit(size).data();
+    }
+    else {
+        return words.chain().find({ fabalad: undefined, fanabalad: undefined }).offset(offset).limit(size).data();
+    }
+
 }
 
 function getBaladList(offset, size) {
@@ -79,7 +85,6 @@ function getNaBaladList(offset, size) {
     }
 }
 function markBalad(wordId) {
-    debugger
     var mimir = words.findOne({ id: wordId });
     if (!$("#btnSwitch")[0].checked) {
         mimir.enbalad = true;
@@ -113,6 +118,9 @@ function getListItem(obj, isBalad, isNaBalad) {
 
     var div1 = $("<div></div>");
     div1.addClass("item-title");
+    div1.addClass("button");
+    div1.css("min-width", "80px");
+
     var key = obj.eng;
     var value = obj.per;
     if (!$("#btnSwitch")[0].checked) {
@@ -133,9 +141,9 @@ function getListItem(obj, isBalad, isNaBalad) {
 
     var balad = $("<a/>");
     balad.addClass("button");
-    balad.addClass("color-blue");
+    balad.addClass("color-green");
     balad.addClass("baladButton");
-    balad.html("بلدم");
+    balad.html("میدونم");
     balad.data("id", obj.id);
     balad.click(function () {
         markBalad($(this).data().id);
@@ -146,7 +154,7 @@ function getListItem(obj, isBalad, isNaBalad) {
     nabalad.addClass("button");
     nabalad.addClass("color-red");
     nabalad.addClass("baladButton");
-    nabalad.html("بلد نیستم");
+    nabalad.html("نمیدونم");
     nabalad.data("id", obj.id);
     nabalad.click(function () {
         markNaBalad($(this).data().id);
