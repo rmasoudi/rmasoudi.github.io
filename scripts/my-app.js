@@ -1,8 +1,12 @@
 history.pushState(null, null, window.top.location.pathname + window.top.location.search);
 window.addEventListener('popstate', () => {
-    var btns = $(".close-popup");
-    if (btns.length > 0) {
-        btns.click();
+    if ($('.modal-in').length == 0) {
+        myApp.confirm('آیا اطمینان دارید؟', "خروج", function () {
+            navigator.app.clearHistory(); navigator.app.exitApp();
+        });
+    }
+    else {
+        myApp.closeModal();
     }
     history.pushState(null, null, window.top.location.pathname + window.top.location.search);
 });
