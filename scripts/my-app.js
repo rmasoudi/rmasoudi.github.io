@@ -1,3 +1,11 @@
+history.pushState(null, null, window.top.location.pathname + window.top.location.search);
+window.addEventListener('popstate', () => {
+    var btns = $(".close-popup");
+    if (btns.length > 0) {
+        btns.click();
+    }
+    history.pushState(null, null, window.top.location.pathname + window.top.location.search);
+});
 myApp = new Framework7({
     tapHold: false,
     pushState: true,
@@ -8,26 +16,23 @@ myApp = new Framework7({
         onBackKeyDown: function () {
             var leftp = myApp.panel.left && myApp.panel.left.opened;
             var rightp = myApp.panel.right && myApp.panel.right.opened;
-            if ( leftp || rightp ) {
+            if (leftp || rightp) {
                 myApp.panel.close();
                 return false;
             } else if ($('.modal-in').length > 0) {
                 myApp.dialog.close();
                 return false;
             } else if (myApp.views.main.router.url == '/') {
-                myApp.dialog.confirm('Are you sure you want to exit?', 'Exit MyApp', function() {
+                myApp.dialog.confirm('Are you sure you want to exit?', 'Exit MyApp', function () {
                     navigator.app.exitApp();
                 },
-                function() {
-                });
+                    function () {
+                    });
             } else {
                 mainView.router.back();
             }
         }
     }
-});
-mainView = myApp.addView('.view-main', {
-    dynamicNavbar: true
 });
 var $$ = Dom7;
 
