@@ -6,8 +6,8 @@ var myApp = new Framework7({
     methods: {
         onBackKeyDown: function () {
             if ($('.modal-in').length > 0) {
-                app.dialog.close();
-                app.popup.close();
+                myApp.dialog.close();
+                myApp.popup.close();
                 return false;
             }
         }
