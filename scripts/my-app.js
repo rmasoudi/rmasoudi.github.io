@@ -1,4 +1,4 @@
-var myApp = new Framework7({
+myApp = new Framework7({
     tapHold: false,
     pushState: true,
     popup: {
@@ -11,7 +11,7 @@ var myApp = new Framework7({
             if ( leftp || rightp ) {
                 myApp.panel.close();
                 return false;
-            } else if ($$('.modal-in').length > 0) {
+            } else if ($('.modal-in').length > 0) {
                 myApp.dialog.close();
                 return false;
             } else if (myApp.views.main.router.url == '/') {
@@ -25,6 +25,9 @@ var myApp = new Framework7({
             }
         }
     }
+});
+mainView = myApp.addView('.view-main', {
+    dynamicNavbar: true
 });
 var $$ = Dom7;
 
