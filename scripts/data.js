@@ -1,8 +1,5 @@
 $$ = Dom7;
 PAGE_SIZE = 20;
-document.addEventListener("backbutton", function () {
-    alert("back button pressed");
-}, false);
 db = new loki('words.db', {
     autoload: true,
     autoloadCallback: databaseInitialize,
