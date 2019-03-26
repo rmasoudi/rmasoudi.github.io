@@ -6,10 +6,22 @@ var myApp = new Framework7({
     },
     methods: {
         onBackKeyDown: function () {
-            if ($('.modal-in').length > 0) {
-                myApp.dialog.close();
-                myApp.popup.close();
+            var leftp = myApp.panel.left && myApp.panel.left.opened;
+            var rightp = myApp.panel.right && myApp.panel.right.opened;
+            if ( leftp || rightp ) {
+                myApp.panel.close();
                 return false;
+            } else if ($$('.modal-in').length > 0) {
+                myApp.dialog.close();
+                return false;
+            } else if (myApp.views.main.router.url == '/') {
+                myApp.dialog.confirm('Are you sure you want to exit?', 'Exit MyApp', function() {
+                    navigator.app.exitApp();
+                },
+                function() {
+                });
+            } else {
+                mainView.router.back();
             }
         }
     }
