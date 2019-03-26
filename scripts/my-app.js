@@ -1,7 +1,16 @@
 var myApp = new Framework7({
     tapHold: false,
     popup: {
-        closeByBackdropClick: true
+        closeByBackdropClick: false
+    },
+    methods: {
+        onBackKeyDown: function () {
+            if ($('.modal-in').length > 0) {
+                app.dialog.close();
+                app.popup.close();
+                return false;
+            }
+        }
     }
 });
 var $$ = Dom7;
