@@ -17,25 +17,46 @@
 </head>
 
 <body>
-    <div class="page-content" data-distance="100">
-        <div class="content-block">
-            <p><a href="#" data-popup=".notAnalyzed" class="open-popup button">لغات بررسی نشده </a></p>
-            <p><a href="#" data-popup=".unknown" class="open-popup button">آزمون لغاتی که بلد نیستم </a></p>
-            <p><a href="#" data-popup=".known" class="open-popup button">مرور لغاتی که بلدم </a></p>
-            <p><a href="#" class="button" onclick="localStorage.clear();">حذف سابقه </a></p>
-            <div class="item-content">
-                <div class="item-inner">
-                    <div class="item-title label">فارسی به انگلیسی</div>
-                    <div class="item-input">
-                        <label class="label-switch">
-                            <input id="btnSwitch" type="checkbox">
-                            <div class="checkbox"></div>
-                        </label>
+
+    <div class="views">
+        <div class="view view-main">
+                <div class="pages navbar-through toolbar-fixed">
+                        <div class="page">
+                            <div class="navbar">
+                                <div class="navbar-inner sliding">
+                                    <div class="left">
+                                        <a class="link back">
+                                            <i class="icon icon-back"></i>
+                                            <span class="ios-only">Back</span>
+                                        </a>
+                                    </div>
+                                    <div class="title">Fixed Navbar</div>
+                                </div>
+                            </div>
+                            <div class="page-content" data-distance="100">
+                                    <div class="content-block">
+                                        <p><a href="#" data-popup=".notAnalyzed" class="open-popup button">لغات بررسی نشده </a></p>
+                                        <p><a href="#" data-popup=".unknown" class="open-popup button">آزمون لغاتی که بلد نیستم </a></p>
+                                        <p><a href="#" data-popup=".known" class="open-popup button">مرور لغاتی که بلدم </a></p>
+                                        <p><a href="#" class="button" onclick="localStorage.clear();">حذف سابقه </a></p>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title label">فارسی به انگلیسی</div>
+                                                <div class="item-input">
+                                                    <label class="label-switch">
+                                                        <input id="btnSwitch" type="checkbox">
+                                                        <div class="checkbox"></div>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
                     </div>
-                </div>
-            </div>
         </div>
     </div>
+
     <div class="popup notAnalyzed">
         <div class="content-block">
             <a href="#" class="close-popup button">بستن</a>
