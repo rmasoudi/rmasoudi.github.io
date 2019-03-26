@@ -1,5 +1,8 @@
 var myApp = new Framework7({
-    tapHold: false
+    tapHold: false,
+    popup: {
+        closeByBackdropClick: true
+    }
 });
 var $$ = Dom7;
 
