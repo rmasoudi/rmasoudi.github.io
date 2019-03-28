@@ -7,7 +7,6 @@ db = new loki('words.db', {
     autosaveInterval: 4000
 });
 words = null;
-loading = false;
 function databaseInitialize() {
     words = db.getCollection("words");
     if (words === null) {
@@ -17,6 +16,7 @@ function databaseInitialize() {
             words.insert(list[i]);
         }
     }
+    refreshCounts();
 }
 function loadInitialItems() {
     $('#wordList').html("");
@@ -108,6 +108,26 @@ function markNaBalad(wordId) {
         mimir.fabalad = undefined;
     }
     words.update(mimir);
+}
+
+function refreshCounts() {
+    var notAnalyzedCount = 0;
+    var baladCount = 0;
+    var nabaladCount = 0;
+    if (!$("#btnSwitch")[0].checked) {
+        notAnalyzedCount = words.chain().find({ enbalad: undefined, ennabalad: undefined }).count();
+        baladCount = words.chain().find({ enbalad: true }).count();
+        nabaladCount = words.chain().find({ ennabalad: true }).count();
+    }
+    else {
+        notAnalyzedCount = words.chain().find({ fabalad: undefined, fanabalad: undefined }).count();
+        baladCount = words.chain().find({ fabalad: true }).count();
+        nabaladCount = words.chain().find({ fanabalad: true }).count();
+    }
+
+    $("#btnNotAnalyzed").html("بررسی نشده (" + notAnalyzedCount + ")");
+    $("#btnNaBalad").html("بلد نیستم (" + nabaladCount + ")");
+    $("#btnBalad").html("بلدم (" + baladCount + ")");
 }
 
 function getListItem(obj, isBalad, isNaBalad) {

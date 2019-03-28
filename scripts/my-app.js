@@ -6,6 +6,7 @@ window.addEventListener('popstate', () => {
         });
     }
     else {
+        refreshCounts();
         myApp.closeModal();
     }
     history.pushState(null, null, window.top.location.pathname + window.top.location.search);
@@ -72,9 +73,8 @@ $(document).ready(function () {
     $$('.unknown').on('popup:opened', function () {
         loadNaBaladItems();
     });
-    // $("#btnSwitch").change(function() {
-    //     reloadWords();
-    // });
-    // reloadWords();
+    $("#btnSwitch").change(function() {
+        refreshCounts();
+    });
 });
 
