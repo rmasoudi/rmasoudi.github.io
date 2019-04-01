@@ -22,6 +22,9 @@
         <p><a id="btnNotAnalyzed" href="#" data-popup=".notAnalyzed" class="open-popup button">لغات بررسی نشده </a></p>
         <p><a id="btnNaBalad" href="#" data-popup=".unknown" class="open-popup button">آزمون لغاتی که بلد نیستم </a></p>
         <p><a id="btnBalad" href="#" data-popup=".known" class="open-popup button">مرور لغاتی که بلدم </a></p>
+        <p><a id="btnSenNotAnalyzed" href="#" data-popup=".senNotAnalyzed" class="open-popup button"></a></p>
+        <p><a id="btnSenNaBalad" href="#" data-popup=".senUnknown" class="open-popup button"></a></p>
+        <p><a id="btnSenBalad" href="#" data-popup=".senKnown" class="open-popup button"></a></p>
         <p><a href="#" class="button" onclick="localStorage.clear();">حذف سابقه </a></p>
         <div class="item-content">
             <div class="item-inner">
@@ -60,6 +63,33 @@
                 <ul id="nabaladWordList" style="direction: ltr;">
                 </ul>
                 <div id="btnNaBaladMore" class="button">بیشتر</div>
+            </div>
+        </div>
+    </div>
+    <div class="popup senNotAnalyzed">
+        <div class="content-block">
+            <div class="list-block">
+                <ul id="senList" style="direction: ltr;">
+                </ul>
+                <div id="btnSenMore" class="button">بیشتر</div>
+            </div>
+        </div>
+    </div>
+    <div class="popup senKnown">
+        <div class="content-block">
+            <div class="list-block">
+                <ul id="baladSenList" style="direction: ltr;">
+                </ul>
+                <div id="btnBaladSenMore" class="button">بیشتر</div>
+            </div>
+        </div>
+    </div>
+    <div class="popup senUnknown">
+        <div class="content-block">
+            <div class="list-block">
+                <ul id="nabaladSenList" style="direction: ltr;">
+                </ul>
+                <div id="btnNaBaladSenMore" class="button">بیشتر</div>
             </div>
         </div>
     </div>

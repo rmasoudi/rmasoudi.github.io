@@ -45,23 +45,44 @@ var $$ = Dom7;
 $(document).ready(function () {
     $("#btnWordMore").click(function () {
         var nextIndex = $("#wordList li").length;
-        var items = getNotAnalyzedList(nextIndex, 20);
+        var items = getNotAnalyzedList(nextIndex, 20, true);
         for (var i = 0; i < items.length; i++) {
-            $('#wordList').append(getListItem(items[i], false, false));
+            $('#wordList').append(getListItem(items[i], false, false, true));
         }
     });
     $("#btnBaladMore").click(function () {
         var nextIndex = $("#baladWordList li").length;
-        var items = getBaladList(nextIndex, 20);
+        var items = getBaladList(nextIndex, 20, true);
         for (var i = 0; i < items.length; i++) {
-            $('#baladWordList').append(getListItem(items[i], true, false));
+            $('#baladWordList').append(getListItem(items[i], true, false, true));
         }
     });
     $("#btnNaBaladMore").click(function () {
         var nextIndex = $("#nabaladWordList li").length;
-        var items = getNaBaladList(nextIndex, 20);
+        var items = getNaBaladList(nextIndex, 20, true);
         for (var i = 0; i < items.length; i++) {
-            $('#nabaladWordList').append(getListItem(items[i], false, true));
+            $('#nabaladWordList').append(getListItem(items[i], false, true, true));
+        }
+    });
+    $("#btnSenMore").click(function () {
+        var nextIndex = $("#senList li").length;
+        var items = getNotAnalyzedList(nextIndex, 20, false);
+        for (var i = 0; i < items.length; i++) {
+            $('#senList').append(getListItem(items[i], false, false, false));
+        }
+    });
+    $("#btnBaladSenMore").click(function () {
+        var nextIndex = $("#baladSenList li").length;
+        var items = getBaladList(nextIndex, 20, false);
+        for (var i = 0; i < items.length; i++) {
+            $('#baladSenList').append(getListItem(items[i], true, false, false));
+        }
+    });
+    $("#btnNaBaladSenMore").click(function () {
+        var nextIndex = $("#nabaladSenList li").length;
+        var items = getNaBaladList(nextIndex, 20, false);
+        for (var i = 0; i < items.length; i++) {
+            $('#nabaladSenList').append(getListItem(items[i], false, true, false));
         }
     });
     $$('.notAnalyzed').on('popup:opened', function () {
@@ -73,7 +94,16 @@ $(document).ready(function () {
     $$('.unknown').on('popup:opened', function () {
         loadNaBaladItems();
     });
-    $("#btnSwitch").change(function() {
+    $$('.senNotAnalyzed').on('popup:opened', function () {
+        loadSenInitialItems();
+    });
+    $$('.senKnown').on('popup:opened', function () {
+        loadSenBaladItems();
+    });
+    $$('.senUnknown').on('popup:opened', function () {
+        loadSenNaBaladItems();
+    });
+    $("#btnSwitch").change(function () {
         refreshCounts();
     });
 });
