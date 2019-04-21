@@ -4,7 +4,7 @@ db = new loki('words.db', {
     autoload: true,
     autoloadCallback: databaseInitialize,
     autosave: true,
-    autosaveInterval: 4000
+    autosaveInterval: 1000
 });
 words = null;
 sentences = null;
@@ -147,17 +147,17 @@ function getBaladList(offset, size, isWord) {
 function getNaBaladList(offset, size, isWord) {
     if (!$("#btnSwitch")[0].checked) {
         if (isWord) {
-            return words.chain().find({ ennabalad: true }).offset(offset).limit(size).data();
+            return words.chain().find({ ennabalad: true }).simplesort('encount').offset(offset).limit(size).data();
         } else {
-            return sentences.chain().find({ ennabalad: true }).offset(offset).limit(size).data();
+            return sentences.chain().find({ ennabalad: true }).simplesort('encount').offset(offset).limit(size).data();
         }
     }
     else {
         if (isWord) {
-            return words.chain().find({ fanabalad: true }).offset(offset).limit(size).data();
+            return words.chain().find({ fanabalad: true }).simplesort('facount').offset(offset).limit(size).data();
         }
         else {
-            return sentences.chain().find({ fanabalad: true }).offset(offset).limit(size).data();
+            return sentences.chain().find({ fanabalad: true }).simplesort('facount').offset(offset).limit(size).data();
         }
     }
 }
@@ -200,6 +200,38 @@ function markNaBalad(wordId, isWord) {
     else {
         mimir.fanabalad = true;
         mimir.fabalad = undefined;
+    }
+    if (isWord) {
+        words.update(mimir);
+    }
+    else {
+        sentences.update(mimir);
+    }
+}
+
+function addCount(wordId, isWord) {
+    var mimir;
+    if (isWord) {
+        mimir = words.findOne({ id: wordId });
+    }
+    else {
+        mimir = sentences.findOne({ id: wordId });
+    }
+    if (!$("#btnSwitch")[0].checked) {
+        if (!mimir.encount) {
+            mimir.encount = 1;
+        }
+        else {
+            mimir.encount = mimir.encount + 1;
+        }
+    }
+    else {
+        if (!mimir.facount) {
+            mimir.facount = 1;
+        }
+        else {
+            mimir.facount = mimir.facount + 1;
+        }
     }
     if (isWord) {
         words.update(mimir);
@@ -289,7 +321,7 @@ function getListItem(obj, isBalad, isNaBalad, isWord) {
     nabalad.html("نمیدونم");
     nabalad.data("id", obj.id);
     nabalad.click(function () {
-        markNaBalad($(this).data().id,isWord);
+        markNaBalad($(this).data().id, isWord);
         $(this).parent().parent().parent().remove();
     });
 
@@ -309,6 +341,18 @@ function getListItem(obj, isBalad, isNaBalad, isWord) {
             $(this).parent().parent().parent().remove();
         });
         after.append(yad);
+
+        var tekrar = $("<a/>");
+        tekrar.addClass("button");
+        tekrar.addClass("color-red");
+        tekrar.addClass("baladButton");
+        tekrar.html("نمیدونم");
+        tekrar.data("id", obj.id);
+        tekrar.click(function () {
+            addCount($(this).data().id, isWord);
+            $(this).parent().parent().parent().remove();
+        });
+        after.append(tekrar);
     } else if (isBalad) {
         var yad = $("<a/>");
         yad.addClass("button");
@@ -317,7 +361,7 @@ function getListItem(obj, isBalad, isNaBalad, isWord) {
         yad.html("نمیدونم");
         yad.data("id", obj.id);
         yad.click(function () {
-            markNaBalad($(this).data().id,isWord);
+            markNaBalad($(this).data().id, isWord);
             $(this).parent().parent().parent().remove();
         });
         after.append(yad);
